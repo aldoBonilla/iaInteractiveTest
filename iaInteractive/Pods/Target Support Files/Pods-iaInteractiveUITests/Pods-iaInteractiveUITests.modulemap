@@ -1,0 +1,6 @@
+framework module Pods_iaInteractiveUITests {
+  umbrella header "Pods-iaInteractiveUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
