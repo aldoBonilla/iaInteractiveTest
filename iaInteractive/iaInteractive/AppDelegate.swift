@@ -42,5 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    ///Present an Alertview from the root viewcontroller
+    func presentAlertFromRootViewController(title: String, message: String) {
+        guard let viewController = window?.rootViewController else {
+            return
+        }
+        showSimpleAlertWithTitle(title: title, message: message, viewController: viewController)
+    }
 }
 

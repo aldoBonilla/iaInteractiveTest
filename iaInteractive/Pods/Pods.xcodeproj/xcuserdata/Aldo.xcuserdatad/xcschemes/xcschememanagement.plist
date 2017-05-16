@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KVNProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +52,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0458FC24CF0F99BF29470BE91C8EC9A1</key>
+		<key>1CC71F9CD5545E32178492A81594B457</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1CC71F9CD5545E32178492A81594B457</key>
+		<key>24E8DA58951CEB079E2A7B21A084882F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>251BAD17812F7EBF6532EACF66F941C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>631CE1EB7C2C682F46E9C8CFF3C5B68C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A09E504EB6C7FB8B0DB6B9AEEEA6240</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B34B19704C1597905F8E9C25D845DE0C</key>
+		<key>A6F4469F57C6B5440451BCD23DED58F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
