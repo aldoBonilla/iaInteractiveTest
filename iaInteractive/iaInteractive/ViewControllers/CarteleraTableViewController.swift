@@ -63,6 +63,7 @@ class CarteleraTableViewController: UITableViewController {
                 return
             }
             movieVC.movie = movieSelected
+            movieVC.city = complex!.cityName
         }
     }
 }

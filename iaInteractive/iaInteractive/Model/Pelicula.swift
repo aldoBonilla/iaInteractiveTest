@@ -22,6 +22,7 @@ class Pelicula: Hashable, CustomStringConvertible {
     let sinopsis: String?
     let poster: String
     var horarios: [(Date, String)] = []
+    var gallery: [String] = []
     
     init(fmResult: FMResultSet) {
         id = Int(fmResult.int(forColumn: "IdPelicula"))

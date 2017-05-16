@@ -62,4 +62,28 @@ class SQLiteApi {
             return nil
         }
     }
+    
+    func getGalleryURLSForMovie(_ idMovie: Int, city: String, onCompletition: @escaping (([String]?, NSError?) -> ())) {
+        
+        let query = "SELECT * FROM Multimedia WHERE IdPelicula = '\(idMovie)' AND Tipo = 'Imagen'"
+        guard let path = filePathWithName(city), let db = FMDatabase(path: path) else {
+            onCompletition(nil, NSError(domain: "SQLiteAPi", code: -1, userInfo: ["error" : "No se encontro la base de datos"]))
+            return
+        }
+        if db.open() {
+            let results: FMResultSet? = db.executeQuery(query, withArgumentsIn: nil)
+            var images: [String] = []
+            while (results?.next())! {
+                let url = results!.string(forColumn: "Archivo")
+                images.append("http://www.cinepolis.com/_MOVIL/iPhone/galeria/thumb/\(url!)")
+            }
+            db.close()
+            onCompletition(images, nil)
+            return
+        } else {
+            db.close()
+            onCompletition(nil, NSError(domain: "SQLiteAPi", code: -1, userInfo: ["error" : "No se pudo abrir la base de datos"]))
+            return
+        }
+    }
 }

@@ -58,7 +58,7 @@ extension UILabel {
             case .Title, .CellTitle:
                 return 1
             case .Detail, .SmallText, .CellDetail:
-                return 1
+                return 0
             }
         }
     }
