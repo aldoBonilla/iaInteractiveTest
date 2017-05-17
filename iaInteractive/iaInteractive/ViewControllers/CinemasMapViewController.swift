@@ -57,10 +57,8 @@ class CinemasMapViewController: UIViewController, MKMapViewDelegate {
         return view
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let annotation = view.annotation as? Complejo else {
-            return
-        }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? Complejo else { return }
         showDetailForCinema?(annotation)
     }
     

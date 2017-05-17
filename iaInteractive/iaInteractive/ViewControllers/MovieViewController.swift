@@ -87,6 +87,8 @@ class MovieViewController: UIViewController {
             trailerVC = segue.destination as? MovieTrailerViewController
         } else if segue.identifier == "showHorarios" {
             scheduleTVC = segue.destination as? MovieSchedulesTableViewController
+            scheduleTVC?.horarios = movie!.horarios
+            scheduleTVC?.tableView.reloadData()
         }
     }
     

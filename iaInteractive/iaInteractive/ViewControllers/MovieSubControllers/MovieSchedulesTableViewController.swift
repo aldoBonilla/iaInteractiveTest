@@ -10,10 +10,14 @@ import UIKit
 
 class MovieSchedulesTableViewController: UITableViewController {
 
-    
+    var horarios: [(Date, String)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,19 +27,15 @@ class MovieSchedulesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return horarios.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "horariosCell", for: indexPath)
+        let thisDate = horarios[indexPath.row]
+        cell.textLabel?.styleWithText(thisDate.0.convertToStringWithFormat(), labelStyle: .CellTitle, aligment: .left)
+        cell.detailTextLabel?.styleWithText(thisDate.1, labelStyle: .CellDetail, aligment: .left)
         return cell
     }
 }

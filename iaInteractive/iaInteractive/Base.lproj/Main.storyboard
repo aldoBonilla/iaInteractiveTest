@@ -60,7 +60,9 @@
                             <outlet property="delegate" destination="VCI-er-S41" id="keS-KS-i64"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cities" id="DFU-Mc-m5X"/>
+                    <navigationItem key="navigationItem" title="Cities" id="DFU-Mc-m5X">
+                        <barButtonItem key="backBarButtonItem" title=" " id="TRx-Fy-dYH"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <segue destination="g5O-No-R13" kind="show" identifier="showCity" id="uhD-EX-V0d"/>
@@ -127,7 +129,9 @@
                             <constraint firstItem="ZM3-wx-ptS" firstAttribute="top" secondItem="NdY-He-iNI" secondAttribute="bottom" id="tyo-Ji-duw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cinemas" id="egz-wb-j5k"/>
+                    <navigationItem key="navigationItem" title="Cinemas" id="egz-wb-j5k">
+                        <barButtonItem key="backBarButtonItem" title=" " id="UKB-9S-iIg"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="containerCinemaMVC" destination="mqj-Sz-Ass" id="cRK-PS-X85"/>
                         <outlet property="containerCinemaTVC" destination="qr6-FI-DW8" id="ZG2-I3-hSj"/>

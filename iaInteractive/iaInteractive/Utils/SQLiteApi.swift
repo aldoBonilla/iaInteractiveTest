@@ -49,7 +49,12 @@ class SQLiteApi {
             while (results?.next())! {
                 let idMovie = Int(results!.int(forColumn: "IdPelicula"))
                 if let movie = movies.filter({$0.id == idMovie}).first {
-                    movie.horarios.append((Date.convertFromString(results!.string(forColumn: "Fecha"))!, results!.string(forColumn: "Horario")))
+                    let date = results!.string(forColumn: "Fecha")
+                    if var horario = movie.horarios.filter({$0.0.convertToStringWithFormat() == date!}).first {
+                        horario.1 = horario.1 + " " + results!.string(forColumn: "Horario")
+                    } else {
+                        movie.horarios.append((Date.convertFromString(results!.string(forColumn: "Fecha"))!, results!.string(forColumn: "Horario")))
+                    }
                 } else {
                     movies.append(Pelicula(fmResult: results!))
                 }
