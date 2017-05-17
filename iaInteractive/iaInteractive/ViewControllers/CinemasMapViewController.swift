@@ -13,7 +13,7 @@ class CinemasMapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    var initialLocation: CLLocation?
+    var initialLocation: CLLocationCoordinate2D?
     var cinemas: [Complejo] = []
     var showDetailForCinema: ((Complejo) -> ())?
     
@@ -21,6 +21,10 @@ class CinemasMapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,11 +34,13 @@ class CinemasMapViewController: UIViewController, MKMapViewDelegate {
     
     func centerMapOnLocation() {
         let radious: CLLocationDistance = 1000
-        let coordination = MKCoordinateRegionMakeWithDistance(initialLocation!.coordinate, radious * 2.0, radious * 2.0)
+        let coordination = MKCoordinateRegionMakeWithDistance(initialLocation!, radious * 2.0, radious * 2.0)
         mapView.setRegion(coordination, animated: true)
     }
     
     func drawCinemas() {
+        initialLocation = cinemas[0].coordinate
+        centerMapOnLocation()
         cinemas.forEach({mapView.addAnnotation($0)})
     }
     
@@ -45,7 +51,7 @@ class CinemasMapViewController: UIViewController, MKMapViewDelegate {
         let identifier = "pin"
         var view: MKPinAnnotationView
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            as? MKPinAnnotationView { // 2
+            as? MKPinAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
